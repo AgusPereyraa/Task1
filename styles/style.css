@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#img-logo:hover {
+    border: 1px solid white;
+}
+
+.navbar-nav a:hover {
+    background-color: rgba(205, 46, 104, 0.767) !important;
+}
+
+#index-title {
+    background-color: rgba(205, 46, 104, 0.767);
+}
+
+.card-img-top {
+    height: 10rem;
+}
+
+.card {
+    background-color: rgba(151, 11, 99, 0.507) !important;
+    box-shadow: 5px 5px 10px 1px black;
+}
+
+.card:hover {
+    cursor: pointer;
+    scale: calc(1.05);
+    transition: all ease-in-out .2s;
+}
+
+.card-body a {
+    background-color: rgba(245, 245, 245, 0.671);
+}
+
+.btn {
+    box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.409);
+}
+
+.icon:hover {
+    border: 2px solid whitesmoke;
+    transition: all ease-in-out .2s;
+    border-radius: 5px;
+    padding: .2rem;
+}
+
+form {
+    border: .3rem solid rgba(205, 46, 104, 0.767);
+    box-shadow: 5px 5px 10px 1px black;
+    width: 40%;
+    margin: 1rem auto;
+}
+
+#burguer {
+    color: white;
+    background-color: rgba(214, 47, 122, 0.566);
+}
+
+#submit-button:hover {
+    color: white !important;
+}
