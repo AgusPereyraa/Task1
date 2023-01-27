@@ -114,7 +114,7 @@ td {
 }
 
 footer {
-    min-height: 10vh;
+    height: 100%;
 }
 
 /* Media Queries : 320px -  */
@@ -138,6 +138,12 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
     }
 }
 
