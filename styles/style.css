@@ -19,6 +19,10 @@
 #section-cards {
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .card-img-top {
@@ -57,6 +61,10 @@ form {
     box-shadow: 5px 5px 10px 1px black;
     width: 80%;
     margin: 1rem auto;
+}
+
+.form-control {
+    resize: none;
 }
 
 #burguer {
@@ -116,6 +124,7 @@ td {
 footer {
     height: 100%;
 }
+
 
 /* Media Queries : 320px -  */
 @media (min-width: 250px) and (max-width: 474px) {
