@@ -1,6 +1,5 @@
 const cards = document.getElementById("section-cards")
 let info = data.events
-// let card = " "
 
 for(let infoEvent of info){
     if(infoEvent.date < data.currentDate){
@@ -19,4 +18,3 @@ for(let infoEvent of info){
       </div>`
     }
 }
-// cards.innerHTML = card

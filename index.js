@@ -1,6 +1,6 @@
 const cards = document.getElementById("section-cards")
 let info = data.events
-// let card = " "
+
 
 for(let infoEvent of info){
     cards.innerHTML += `<div class="card m-2" style="width: 16rem; height: 24rem;">
@@ -17,4 +17,3 @@ for(let infoEvent of info){
     </div>
   </div>`
 }
-// cards.innerHTML = card
