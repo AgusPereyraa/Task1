@@ -12,7 +12,7 @@ for(let infoEvent of info){
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <span>Price: $${infoEvent.price}</span>
-            <a href="./pages/details.html" class="btn btn-outline-secondary">Go details</a>
+            <a href="../pages/details.html" class="btn btn-outline-secondary">Go details</a>
           </div>
         </div>
       </div>`
