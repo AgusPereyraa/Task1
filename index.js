@@ -1,119 +1,99 @@
 const cards = document.getElementById('section-cards')
-const checks = document.getElementById( 'section-check' )
+const checks = document.getElementById('section-check');
 const input = document.querySelector('.form-control');
 
 let info = data.events
-let check = " "
 
-const category = [... new Set(info.map (info => info.category))]
-
+const category = [...new Set(info.map(categories => categories.category))]
 
 
-// funciones
+// FUNCTIONS
 
-function agreeCard(category, cards){
-    cards.innerHTML = ''
-    let template = ''
-    for( let e of category ){
-        template += createCard(e)
-    }
-    cards.innerHTML += template
-}
-agreeCard( category, cards )
-
-// ------ //
-
-function createCard(e){
-  let card = " "
-for(let infoEvent of e){
-    card.className = "infoCard"
-    card += `<div class="card m-2" style="width: 16rem; height: 24rem;">
-    <img src=${infoEvent.image} class="card-img-top mt-2" alt="food">
-    <div class="card-body d-flex flex-column justify-content-between">
-      <div>
-        <h5 class="card-title">${infoEvent.name}</h5>
-        <p class="card-text">${infoEvent.description}</p>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <span>Price: $${infoEvent.price}</span>
-        <a href="./pages/details.html" class="btn btn-outline-secondary">Go details</a>
-      </div>
+// Create card function
+function createCard(e) {
+  return `<div class="card m-2" style="width: 16rem; height: 24rem;">
+  <img src=${e.image} class="card-img-top mt-2" alt="food">
+  <div class="card-body d-flex flex-column justify-content-between">
+    <div>
+      <h5 class="card-title">${e.name}</h5>
+      <p class="card-text">${e.description}</p>
     </div>
-  </div>`
+    <div class="d-flex justify-content-between align-items-center">
+      <span>Price: $${e.price}</span>
+      <a href="./pages/details.html?id=${e._id}" class="btn btn-outline-secondary">Go details</a>
+    </div>
+  </div>
+</div>`
 }
-cards.innerHTML = card
-}
-createCard(info)
 
-// ------ //
-
-function createChecks(){
-  for (let checks of category){
-    check += `<div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="${checks}" value="${checks}">
-    <label class="form-check-label" for="${checks}">${checks}</label>
-  </div>`
+// Print card function
+function agreeCard(info, cards) {
+  let template = " "
+  for (let e of info) {
+    template += createCard(e)
   }
-  checks.innerHTML += check
+  cards.innerHTML = template
 }
-createChecks(category)
+agreeCard(info, cards)
 
-// ------ //
+// Create checks function
+function createChecks(checks) {
+  return `<div class="form-check form-check-inline">
+<input class="form-check-input" type="checkbox" id="${checks}" value="${checks}">
+<label class="form-check-label" for="${checks}">${checks}</label>
+</div>`
+}
 
-function categoryCheck(category){
-  const checked = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(check => check.value)
-  if(checked.length === 0){
-    return(category)
+// Print checks function
+function agreeChecks(categories, checks) {
+  let template = " "
+  for (let e of categories) {
+    template += createChecks(e)
   }
-  return category.filter(filtrados => checked.includes(filtrados.category))
+  checks.innerHTML += template
 }
-categoryCheck(category)
+agreeChecks(category, checks)
 
-// funciones fin
+// Filter checks function
+function categoryCheck(info) {
+  const checked = [...document.querySelectorAll("input[type='checkbox']:checked")].map(check => check.value)
+  if (checked.length === 0) { return info }
+  return info.filter(checkFilter => checked.includes(checkFilter.category))
+}
 
-// eventos
+// Filter search function
+function searchFilter(e, inputValue) {
+  let filtered = e.filter(filter => filter.name.toLowerCase().includes(inputValue))
+  return filtered
+}
 
-checks.addEventListener("change", (e) => {
-  let aux = categoryCheck (info)
-  createCard(aux)
+// print message not found
+function message(eventos, cards) {
+  if (eventos.length === 0) {
+    cards.innerHTML = `<p class="fs-2 text-danger">Event's not found</p>`
+  } else {
+    return agreeCard(eventos, cards)
+  }
+}
+
+
+// EVENTS
+
+// check event
+checks.addEventListener("change", () => {
+  let inputValue = input.value.toLowerCase()
+  let aux = searchFilter(info, inputValue)
+  let aux2 = categoryCheck(aux)
+  message(aux2, cards)
 })
 
-input.addEventListener("input", (e) => {
-  const search = e.target.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
-  let value = false
-  cards.forEach(card => {
-    const nombre = card.querySelector(".card-title").innerText.toLowerCase()
-    if(nombre.includes(search)){
-      value == true
-      return card.style.display="block"
-    }else{
-      return card.style.display="none"
-    }
-  })
-});
-
-// eventos fin
-
-// function filtrarPersonajesSelect( personajes, value ){
-//     if( value == 'all' ) return personajes
-//     return personajes.filter( personaje => personaje.role.displayName == value ) 
-// }   
-
-// function filtrarPersonajesRadio( personajes, value){
-//     if( value == 'all'){
-//         return personajes
-//     }
-//     let aux = personajes.filter( personaje => {
-//         if( value == 'base' ){
-//             return personaje.isBaseContent
-//         }
-//         if( value == 'Contracts' ){
-//             return !personaje.isBaseContent
-//         }
-//     } )
-
-//     return aux
-// }
+// input event
+input.addEventListener("keyup", (e) => {
+  e.preventDefault()
+  let inputValue = input.value.toLowerCase()
+  let aux = searchFilter(info, inputValue)
+  let aux2 = categoryCheck(aux)
+  message(aux2, cards)
+})
 
 
