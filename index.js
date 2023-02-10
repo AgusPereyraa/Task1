@@ -20,7 +20,7 @@ function createCard(e) {
     </div>
     <div class="d-flex justify-content-between align-items-center">
       <span>Price: $${e.price}</span>
-      <a href="./pages/details.html?id=${e._id}" class="btn btn-outline-secondary">Go details</a>
+      <a href="./pages/details.html?id=${e._id}&name=${e.name}" class="btn btn-outline-secondary">Go details</a>
     </div>
   </div>
 </div>`
