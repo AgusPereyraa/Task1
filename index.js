@@ -57,7 +57,7 @@ agreeChecks(category, checks)
 // Filter checks function
 function categoryCheck(info) {
   const checked = [...document.querySelectorAll("input[type='checkbox']:checked")].map(check => check.value)
-  if (checked.length === 0) { return info }
+  if (checked.length === 0) { return info} 
   return info.filter(checkFilter => checked.includes(checkFilter.category))
 }
 
