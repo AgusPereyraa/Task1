@@ -4,7 +4,7 @@ const input = document.querySelector('.form-control');
 
 let info = data.events
 
-const category = [...new Set(info.map(categories => categories.category))]
+const category =  [...new Set(info.map(categories => categories.category))]
 
 
 // FUNCTIONS
@@ -62,8 +62,8 @@ function categoryCheck(info) {
 }
 
 // Filter search function
-function searchFilter(e, inputValue) {
-  let filtered = e.filter(filter => filter.name.toLowerCase().includes(inputValue))
+function searchFilter(eventos, inputValue) {
+  let filtered = eventos.filter(evento => evento.name.toLowerCase().includes(inputValue))
   return filtered
 }
 
