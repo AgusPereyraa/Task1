@@ -1,22 +1,20 @@
-import {addCard, categoryCheck} from "../scripts/modules/functions.js"
+import {addDetailsCard} from "../scripts/modules/functions.js"
 
 const section = document.getElementById("detail-section")
 
-let info = data.events
-
-const queryString = location.search
-
-const params = new URLSearchParams(queryString)
+const params = new URLSearchParams(location.search)
 
 const id = params.get("id")
 
-const card = info.find( events => events._id == id)
-
-const aux = card.name;
+const aux = params.get("name")
 document.title = `${aux}'s Details`
 
-addCard(card)
-categoryCheck(id, section)
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then( (response) => response.json())
+    .then( (info) =>{
+        addDetailsCard(info.events.find( (card) =>  card._id == id), section )
+    }
+    )
 
 
 

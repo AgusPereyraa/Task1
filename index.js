@@ -1,38 +1,42 @@
-import {createCard, agreeCard, createChecks, agreeChecks, categoryCheck, searchFilter, message} from "./scripts/modules/functions.js"
-
+import {agreeCard, addChecks, filterCategory, filterSearch, addMessage} from "./scripts/modules/functions.js"
 
 const cards = document.getElementById('section-cards')
-const checks = document.getElementById('section-check');
-const input = document.querySelector('.form-control');
-
-let info = data.events
-
-const category = [...new Set(info.map(categories => categories.category))]
-
-// FUNCTIONS
-createCard(cards)
-createChecks(checks)
-agreeCard(info, cards)
-agreeChecks(category, checks)
+const checks = document.getElementById('section-check')
+const input = document.querySelector('.form-control')
 
 
-// EVENTS
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+  .then((response) => response.json())
+  .then((info) => {
+    const data = info.events
+    agreeCard(data, cards)
+    const filterCheckbox = Array.from(
+      new Set(data.map((card) => card.category))
+    )
 
-// check event
-checks.addEventListener("change", () => {
-  let inputValue = input.value.toLowerCase()
-  let aux = searchFilter(info, inputValue)
-  let aux2 = categoryCheck(aux)
-  message(aux2, cards)
-})
+    addChecks(filterCheckbox, checks)
+    checks.addEventListener("change", () => {
+      let search = input.value.toLowerCase()
+      let searchFilter = filterSearch(search, data)
+      let filters = filterCategory(searchFilter)
+      agreeCard(filters, cards)
+      addMessage(filters, cards)
+    })
 
-// input event
-input.addEventListener("keyup", (e) => {
-  e.preventDefault()
-  let inputValue = input.value.toLowerCase()
-  let aux = searchFilter(info, inputValue)
-  let aux2 = categoryCheck(aux)
-  message(aux2, cards)
-})
+    input.addEventListener("keyup", () => {
+      let search = input.value.toLowerCase()
+      let searchFilter = filterSearch(search, data)
+      let filters = filterCategory(searchFilter)
+      agreeCard(filters, cards)
+      addMessage(filters, cards)
+    })
+
+    input.addEventListener("submit", (e) => {
+      e.preventDefault()
+    })
+  })
+  .catch((error) => console.log(error))
+
+
 
 

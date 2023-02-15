@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="shortcut icon" href="../assets/img/Logo Amazing Events.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/Logo Amazing Events1.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Amazing Events</title>
+    <title>Amazing Events | Stats</title>
 </head>
 
 <body class="bg-body-secondary">
@@ -48,82 +48,51 @@
             <h2 class="text-center p-4" id="index-title">Stats</h2>
         </header>
 
-        <div class="d-flex justify-content-center align-items-center m-5">
-            <table>
-                <tr>
-                    <th colspan="3" class="p-2">Event Estatistics</th>
-                </tr>
-                <tr>
-                    <td>Events with the highest percentage of attendance</td>
-                    <td>Events with the highest percentage of attendance</td>
-                    <td class="text-center">Event with larguer capacity</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <th colspan="3" class="p-2">Upcoming events statistic by category</th>
-                </tr>
-                <tr>
-                    <td class="px-2">Categories</td>
-                    <td class="px-2">Revenues</td>
-                    <td class="text-center">Porcentage of attendance</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <th colspan="3">Upcoming events statistic by category</th>
-                </tr>
-                <tr>
-                    <td class="px-2">Categories</td>
-                    <td class="px-2">Revenues</td>
-                    <td class="text-center">Porcentage of attendance</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
+        <div class="d-flex flex-column justify-content-center align-items-center m-5">
+            <table class="table table-bordered border-primary m-3  bg-white text-center">
+                <thead>
+                    <tr class="title fs-4">
+                        <th colspan="3" class="p-2">Event statistics</th>
+                    </tr>
+                    <tr>
+                        <th>Events with the highest percentage of attendance</th>
+                        <th>Events with the lowest percentage of attendance</th>
+                        <th>Event with larger capacity</th>
+                    </tr>
+                </thead>
+                <tbody id="eventStatistics">
+    
+                </tbody>
+            </table>
+            <table class="table table-bordered border-primary m-3 bg-white text-center">
+                <thead>
+                    <tr class="title fs-4">
+                        <th colspan="3" class="p-2">Upcoming events statistics by category</th>
+                    </tr>
+                    <tr>
+                        <th class="p-2">Category</th>
+                        <th class="p-2">Revenues</th>
+                        <th class="p-2">Percentage of attendance</th>
+                    </tr>
+                </thead>
+                <tbody id="upcomingStatistics">
+    
+                </tbody>
+            </table>
+            <table class="table table-bordered border-primary m-3 bg-white text-center">
+                <thead>
+                    <tr class="title fs-4">
+                        <th colspan="3" class="p-2">Past events statistic by category</th>
+                    </tr>
+                    <tr>
+                        <th class="p-2">Category</th>
+                        <th class="p-2">Revenues</th>
+                        <th class="p-2">Percentage of attendance</th>
+                    </tr>
+                </thead>
+                <tbody id="pastStatistics">
+    
+                </tbody>
             </table>
         </div>
         <!-- End Main -->
@@ -163,7 +132,7 @@
             </section>
 
             <section class="text-white pt-2">
-                <p class="mx-2">Cohort 42</p>
+                <p class="mx-2">Cohort 42 | Agustin Pereyra</p>
             </section>
         </footer>
         <!-- End Footer -->
@@ -172,6 +141,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+            <script type="module" src="../scripts/stats.js"></script>
         <!-- End Scripts -->
 </body>
 

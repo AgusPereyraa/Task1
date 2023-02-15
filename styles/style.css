@@ -100,46 +100,19 @@ form {
     border-radius: 1rem !important;
 }
 
-#text-detail {
+.card-text {
     text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
 }
 
-#title-card {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-#category-detail {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-#place-detail {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-#capacity-detail {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-#assistance-detail {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-#estimate-detail {
-    text-shadow: 1px 1px 2px rgba(205, 46, 104, 0.767);
-}
-
-table{
-    background-color: rgba(205, 46, 104, 0.443);
+.table{
+    background-color: transparent;
     box-shadow: 5px 5px 10px 1px black;
-}
-
-td {
-    font-weight: 500;
 }
 
 tr,
 th,
 td {
+    background-color: rgba(205, 46, 104, 0.443);
     border: 3px solid white !important;
     height: 2rem;
     padding: 1rem;
